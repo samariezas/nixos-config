@@ -42,19 +42,6 @@ in
         name = username;
         value = { pkgs, ... }:
         {
-          nixpkgs.overlays = [
-            (final: prev: {
-              waybar = prev.waybar.overrideAttrs (old: {
-                patches = (old.patches or []) ++ [
-                  (prev.fetchpatch {
-                    url = "https://github.com/Alexays/Waybar/commit/7505e2c3f3cc92bdbc1ef3a2650a2c32170f8b9e.patch";
-                    hash = "sha256-0GZYdiMlD5x5w6iRKZt1ap3HmZPS4uuiYFRw64N+wy8=";
-                  })
-                ];
-              });
-            })
-          ];
-
           wayland.windowManager.hyprland = {
             enable = true;
             settings = hyprconfig;
