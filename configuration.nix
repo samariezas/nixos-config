@@ -63,7 +63,7 @@
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
   # time.timeZone = "Europe/Vilnius";
-  time.timeZone = "US/Eastern";
+  time.timeZone = "Europe/Budapest";
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the X11 windowing system.
