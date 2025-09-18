@@ -93,7 +93,6 @@
     "$mainMod, RETURN, exec, $terminal"
     "$mainMod SHIFT, Q, killactive,"
     "$mainMod, M, exit,"
-    "$mainMod, E, exec, $fileManager"
     "$mainMod, SPACE, togglefloating,"
     "$mainMod, D, exec, $menu"
     "$mainMod, Y, exec, $batterycap"
@@ -136,6 +135,8 @@
 
     ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+    "$mainMod, E, togglegroup"
   ];
 
   bindle = [

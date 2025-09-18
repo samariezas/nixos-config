@@ -10,7 +10,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      <home-manager/nixos>
 
       ./wm
       ./neovim
@@ -55,7 +54,7 @@
     };
   };
 
-  boot.tmp.useTmpfs = true;
+  boot.tmp.useTmpfs = false;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.loader.systemd-boot.enable = true;
 
@@ -252,6 +251,7 @@
     man-pages-posix
 
     libnotify
+    jmtpfs
   ];
 
   environment.variables.EDITOR = "vim";
