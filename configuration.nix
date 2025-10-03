@@ -261,6 +261,10 @@
 
     libnotify
     jmtpfs
+
+    debootstrap
+    parted
+    expect
   ];
 
   environment.variables.EDITOR = "vim";
