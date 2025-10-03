@@ -156,7 +156,7 @@
     openssh.authorizedKeys.keyFiles = [ ./ssh/thinkpad_yubikey.pub ];
     isNormalUser = true;
     description = "Joris";
-    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" ];
     useDefaultShell = true;
   };
 
@@ -289,6 +289,8 @@
   services.udev.extraRules = ''
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", OWNER:="joris", SYMLINK+="stlinkv2-1_%n"
   '';
+
+  virtualisation.docker.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
