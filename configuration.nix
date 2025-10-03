@@ -63,7 +63,7 @@
     };
   };
 
-  boot.tmp.useTmpfs = false;
+  boot.tmp.useTmpfs = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.loader.systemd-boot.enable = true;
 
