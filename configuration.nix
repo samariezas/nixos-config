@@ -265,6 +265,8 @@
     debootstrap
     parted
     expect
+
+    distrobox
   ];
 
   environment.variables.EDITOR = "vim";
@@ -290,7 +292,10 @@
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", OWNER:="joris", SYMLINK+="stlinkv2-1_%n"
   '';
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    podman.enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
