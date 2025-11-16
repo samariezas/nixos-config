@@ -38,5 +38,6 @@
   # ];
   environment.systemPackages = with pkgs; [
     clinfo
+    mangohud
   ];
 }
