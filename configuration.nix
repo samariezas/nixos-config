@@ -259,6 +259,7 @@
     vlc
     transmission_4-gtk
     signal-desktop
+    telegram-desktop
 
     linux-manual
     man-pages
