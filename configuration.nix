@@ -275,6 +275,14 @@
     distrobox
   ];
 
+  system.extraDependencies = with pkgs; [
+    gcc
+    gnat
+    rustc
+    cargo
+    zig
+  ];
+
   environment.variables.EDITOR = "vim";
 
   documentation = {
