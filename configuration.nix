@@ -16,6 +16,7 @@
       ./gaming
       # ./backuper
       ./virt.nix
+      ./dirty-git.nix
     ];
 
   wmconfig.users = [ "joris" "gaming" ];
@@ -101,6 +102,11 @@
       }
       grml_theme_add_token nix-shell-indicator -f nix_shell_prompt '%F{magenta}' '%f'
       zstyle ':prompt:grml:left:setup' items rc nix-shell-indicator change-root user at host path vcs percent
+
+      if [[ -x $(which dirtygit) ]]
+      then
+          dirtygit || echo "Dirtygit failed"
+      fi
     '';
   };
 
