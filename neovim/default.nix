@@ -112,7 +112,6 @@
               
               local lsp = require('lsp-zero')
               local cmp = require('cmp')
-              local lspconfig = require('lspconfig')
               lsp.preset('recommended')
               lsp.set_sign_icons()
               local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -135,7 +134,8 @@
                       ['<C-Space>'] = cmp.mapping.complete(),
                   }),
               })
-              lsp.on_attach(function(client, bufnr)
+
+              local function on_attach_clbk(client, bufnr)
                   local opts = {buffer = bufnr, remap = false}
                   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
                   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -151,15 +151,25 @@
                   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
                   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
                   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-              end)
-              lspconfig.jdtls.setup({})
-              lspconfig.pyright.setup({})
-              lspconfig.rust_analyzer.setup({})
-              lspconfig.clangd.setup({})
-              lspconfig.hls.setup({})
-              lspconfig.nixd.setup({})
-              lspconfig.cmake.setup({})
-              lspconfig.zls.setup({})
+              end
+
+              lsp.on_attach(on_attach_clbk)
+
+              local servers = {
+                  "jdtls",
+                  "pyright",
+                  "rust_analyzer",
+                  "clangd",
+                  "hls",
+                  "nixd",
+                  "cmake",
+                  "zls"
+              };
+
+              for _, name in ipairs(servers) do
+                  vim.lsp.enable(name)
+              end
+
               lsp.setup()
               vim.diagnostic.config({
                   virtual_text = true,

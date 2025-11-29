@@ -184,14 +184,29 @@
     };
     programs.git = {
       enable = true;
-      userName = "Joris Pevcevičius";
-      userEmail = "joris.pevcas@gmail.com";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Joris Pevcevičius";
+          email = "joris.pevcas@gmail.com";
+        };
         credential.helper = "store";
       };
     };
     programs.ssh = {
       enable = true;
+      enableDefaultConfig = false;
+      matchBlocks."*" = {
+        forwardAgent = false;
+        addKeysToAgent = "no";
+        compression = false;
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+        hashKnownHosts = false;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+      };
       # matchBlocks.storage = {
       #   hostname = secrets.backup.hostname;
       #   user = secrets.backup.username;
