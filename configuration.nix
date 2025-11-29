@@ -274,6 +274,7 @@
     mpv
     yubikey-personalization
     yubikey-manager
+    openconnect
 
     killall
     htop
