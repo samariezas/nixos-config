@@ -54,10 +54,13 @@
     animation = [
       "windows, 1, 2, myBezier"
       "windowsOut, 1, 2, default, popin 80%"
+      "layers, 1, 2, myBezier, default"
+      "fade, 1, 2, default"
       "border, 1, 1, default"
       "borderangle, 1, 1, default"
-      "fade, 1, 2, default"
       "workspaces, 1, 2, default"
+      "zoomFactor, 0"
+      "monitorAdded, 0"
     ];
   };
 

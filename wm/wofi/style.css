@@ -20,17 +20,16 @@ window {
 }
 
 #outer-box {
-    padding: 2em;
+    padding: 1em;
 }
 
 #input {
-    padding:1em .75em;
+    padding: 1em .75em;
     margin: 0em .25em;
-    font-size:1.5em;
+    font-size: 13pt;
     background-color: @background;
     border: 1px solid transparent;
     box-shadow: inset 0 -.15rem @accent;
-    transition: background-color .30s ease-in-out;
 }
 
 #input image {
@@ -39,7 +38,7 @@ window {
 }
 
 #input:focus {
-    background:@highlight;
+    background: @highlight;
     border: 1px solid @outline;
 }
 
@@ -49,11 +48,11 @@ window {
 
 #entry {
     border: 1px solid transparent;
-    padding:1em;
+    padding: 1em;
     margin: .25rem;
     font-weight: normal;
+    font-size: 11pt;
     box-shadow: inset 0rem 0px rgba(0, 0, 0, 0);
-    transition: box-shadow .30s ease-in-out, background-color .30s ease-in-out;
 }
 
 #entry image {
@@ -64,5 +63,4 @@ window {
     background-color: @highlight;
     border: 1px solid @outline;
     box-shadow: inset .2rem 0px @accent;
-
 }
