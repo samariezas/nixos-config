@@ -256,7 +256,6 @@
     squashfsTools
     stlink
     stress
-    xfce.thunar
     whois
     xournalpp
     zip
