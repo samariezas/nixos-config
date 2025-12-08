@@ -264,6 +264,7 @@
     python3
     python3Packages.ipython
     gdb
+    valgrind
 
     libreoffice
     zathura
@@ -279,6 +280,7 @@
     killall
     htop
     nix-search-cli
+    nh
     ranger
     vesktop
     vlc
