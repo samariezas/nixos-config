@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     grub-theme = {
-      url = "github:Lxtharia/minegrub-world-sel-theme";
+      url = "github:Lxtharia/minegrub-world-sel-theme/1b26faa8698dd352934bb2d8e5e1c8312e95e624";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
