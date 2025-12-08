@@ -14,7 +14,7 @@
       haskell-language-server
       nixd
       cmake-language-server
-      zls
+      zls_0_14
     ];
 
     home-manager.users = with builtins; listToAttrs (map
@@ -154,6 +154,12 @@
               end
 
               lsp.on_attach(on_attach_clbk)
+
+              vim.lsp.config("zls", {
+                  settings = {
+                      enable_build_on_save = true,
+                  }
+              })
 
               local servers = {
                   "jdtls",
