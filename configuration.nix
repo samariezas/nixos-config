@@ -267,6 +267,7 @@
     python3Packages.ipython
     gdb
     valgrind
+    perf
 
     libreoffice
     zathura
