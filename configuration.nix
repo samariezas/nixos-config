@@ -24,9 +24,8 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  powerManagement.cpuFreqGovernor = "performance";
   powerManagement.enable = true;
-  services.power-profiles-daemon.enable = true;
+  powerManagement.cpuFreqGovernor = "performance";
 
   nixpkgs.overlays = [
     (final: prev: {
