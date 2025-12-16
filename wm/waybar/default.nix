@@ -81,6 +81,7 @@ in
       format = big "󰂲";
       format-on = big "󰂯";
       format-connected = "${big "󰂯"} {device_alias}";
+      format-connected-battery = "${big "󰂯"} {device_alias} {device_battery_percentage}%";
       on-click = "blueman-manager";
     };
   };
