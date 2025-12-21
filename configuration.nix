@@ -3,18 +3,14 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, ... }:
-# let
-#   secrets = import ./secrets.nix;
-# in
 {
   imports =
     [
-      ./hardware-configuration.nix
+      ./machine-configs
 
       ./wm
       ./neovim
       ./gaming
-      # ./backuper
       ./virt.nix
       ./dirty-git.nix
     ];
@@ -26,6 +22,8 @@
 
   powerManagement.enable = true;
   powerManagement.cpuFreqGovernor = "performance";
+
+  services.fstrim.enable = true;
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -57,22 +55,12 @@
     };
   };
 
-  boot.initrd.luks.devices = {
-    crypted = {
-      device = "/dev/disk/by-uuid/ae98b94b-9bb0-426d-bf0f-15b10f7b48dc";
-      preLVM = true;
-      allowDiscards = true;
-    };
-  };
-
   boot.tmp.useTmpfs = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.loader.systemd-boot.enable = true;
 
-  networking.hostName = "laptop";
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
-  # time.timeZone = "Europe/Vilnius";
   time.timeZone = "Europe/Budapest";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -149,11 +137,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    wireplumber.extraConfig.bluetoothEnhancements = {
-      "monitor.bluez.properties" = {
-        "bluez5.autoswitch-profile" = false;
-      };
-    };
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -212,18 +195,8 @@
         controlPath = "~/.ssh/master-%r@%n:%p";
         controlPersist = "no";
       };
-      # matchBlocks.storage = {
-      #   hostname = secrets.backup.hostname;
-      #   user = secrets.backup.username;
-      #   port = secrets.backup.port;
-      #   extraOptions = {
-      #     ControlPath = "~/.ssh/master-%r@%n:%p";
-      #     ControlMaster = "auto";
-      #     ControlPersist = "10m";
-      #   };
-      # };
     };
-    home.stateVersion = "25.05";
+    home.stateVersion = config.system.stateVersion;
   };
 
   # Install firefox.
@@ -309,7 +282,6 @@
 
   system.extraDependencies = with pkgs; [
     gcc
-    gnat
     rustc
     cargo
     zig
@@ -326,12 +298,6 @@
     };
     dev.enable = true;
   };
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-  services.blueman.enable = true;
 
   # stm32 usb
   services.udev.extraRules = ''
@@ -357,13 +323,4 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
-
 }

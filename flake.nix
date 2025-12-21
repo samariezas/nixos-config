@@ -18,6 +18,17 @@
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          ./machine-configs/laptop
+          home-manager.nixosModules.home-manager
+          grub-theme.nixosModules.default
+          ./configuration.nix
+        ];
+      };
+
+      tabletop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./machine-configs/tabletop
           home-manager.nixosModules.home-manager
           grub-theme.nixosModules.default
           ./configuration.nix

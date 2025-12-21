@@ -1,4 +1,7 @@
 { config, pkgs, lib, ... }:
+let
+  cfg = config.pevcas;
+in
 {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
@@ -18,24 +21,20 @@
     description = "Gaming";
     extraGroups = [ "networkmanager" ];
     useDefaultShell = true;
-    # packages = with pkgs; [ prismlauncher ];
+    packages = lib.mkIf (cfg.systemType == "tabletop")
+        [ pkgs.prismlauncher ];
   };
 
   home-manager.users.gaming = { pkgs, ... }:
   {
-    home.stateVersion = "25.05";
+    home.stateVersion = config.system.stateVersion;
   };
 
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    # extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
 
-  # boot.initrd.kernelModules = [ "amdgpu" ];
-  # systemd.tmpfiles.rules = [
-  #   "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  # ];
   environment.systemPackages = with pkgs; [
     clinfo
     mangohud

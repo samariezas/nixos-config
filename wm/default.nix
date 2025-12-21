@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 let
   hyprconfig = import ./hyprland.nix { inherit pkgs; };
-  waybarconfig = import ./waybar;
+  waybarconfig = import ./waybar { inherit lib; inherit config; };
   woficonfig = import ./wofi;
   hyprlockconfig = import ./hyprlock.nix;
   battery = pkgs.callPackage ./battery {};
@@ -12,11 +12,13 @@ in
   };
 
   config = {
-    security.wrappers.batterylimit = {
-      setuid = true;
-      owner = "root";
-      group = "root";
-      source = "${battery}";
+    security.wrappers = lib.mkIf config.pevcas.battery.enabled {
+      batterylimit = {
+        setuid = true;
+        owner = "root";
+        group = "root";
+        source = "${battery}";
+      };
     };
 
     environment.systemPackages = with pkgs; [

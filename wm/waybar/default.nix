@@ -1,5 +1,12 @@
+{ config, lib }:
 let
   big = str: "<big>" + str + "</big>";
+  battery-modules = if config.pevcas.battery.enabled
+        then [ "battery" "custom/battery_capacity" ]
+        else [];
+  bluetooth-module = if config.pevcas.bluetooth.enabled
+        then [ "bluetooth" ]
+        else [];
 in
 {
   mainBar = {
@@ -7,7 +14,7 @@ in
     position = "top";
     modules-left = [ "hyprland/workspaces" ];
     modules-center = [ "clock" ];
-    modules-right = [ "tray" "bluetooth" "hyprland/language" "battery" "custom/battery_capacity" "pulseaudio" "network" ];
+    modules-right = [ "tray" ] ++ bluetooth-module ++ [ "hyprland/language" ] ++ battery-modules ++ [ "pulseaudio" "network" ];
 
     "hyprland/workspaces" = {
       disable-scroll = true;
