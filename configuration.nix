@@ -63,6 +63,10 @@
   networking.firewall.enable = false;
   time.timeZone = "Europe/Budapest";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocales = "all";
+  environment.variables = {
+    LC_TIME = "en_GB.UTF-8";
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
