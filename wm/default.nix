@@ -25,6 +25,7 @@ in
       hyprshot
       mako
       brightnessctl
+      gammastep
     ];
 
     fonts.packages = with pkgs; [

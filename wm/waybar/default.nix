@@ -14,7 +14,7 @@ in
     position = "top";
     modules-left = [ "hyprland/workspaces" ];
     modules-center = [ "clock" ];
-    modules-right = [ "tray" ] ++ bluetooth-module ++ [ "hyprland/language" ] ++ battery-modules ++ [ "pulseaudio" "network" ];
+    modules-right = [ "tray" ] ++ bluetooth-module ++ [ "custom/redshift" "hyprland/language" ] ++ battery-modules ++ [ "pulseaudio" "network" ];
 
     "hyprland/workspaces" = {
       disable-scroll = true;
@@ -82,6 +82,11 @@ in
       format = "CAP {text}";
       exec = "cat /var/tmp/current_battery_limit";
       interval = 1;
+    };
+
+    "custom/redshift" = {
+      format = big " ";
+      on-click = "pkill -u $USER --signal SIGINT gammastep || gammastep -P -O 3000k";
     };
 
     bluetooth = {
