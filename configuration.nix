@@ -61,7 +61,7 @@
 
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
-  time.timeZone = "Europe/Budapest";
+  time.timeZone = "Europe/Vilnius";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocales = "all";
   environment.variables = {
