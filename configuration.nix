@@ -13,6 +13,7 @@
       ./gaming
       ./virt.nix
       ./dirty-git.nix
+      ./zerotier.nix
     ];
 
   wmconfig.users = [ "joris" "gaming" ];

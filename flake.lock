@@ -62,21 +62,7 @@
       "inputs": {
         "grub-theme": "grub-theme",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "secrets": "secrets"
-      }
-    },
-    "secrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1768950716,
-        "narHash": "sha256-85BNjufcw10vzhyN3VzU0Mzvbw8nmiEkluOaYA6kU48=",
-        "path": "/home/joris/nix-secrets",
-        "type": "path"
-      },
-      "original": {
-        "path": "/home/joris/nix-secrets",
-        "type": "path"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
