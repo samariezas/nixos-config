@@ -267,6 +267,8 @@
     signal-desktop
     telegram-desktop
 
+    waypipe
+
     linux-manual
     man-pages
     man-pages-posix
