@@ -1,6 +1,9 @@
 { pkgs }:
 {
-  monitor = ",highrr,auto,1";
+  monitor = [
+    ",highrr,auto,1"
+    "HDMI-A-1, 1920x1080@60, auto, 1"
+  ];
 
   "$terminal" = "kitty";
   "$menu" = "wofi --show drun";
