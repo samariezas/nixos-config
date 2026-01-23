@@ -239,6 +239,7 @@
     xournalpp
     zip
     p7zip
+    ethtool
 
     python3
     python3Packages.ipython

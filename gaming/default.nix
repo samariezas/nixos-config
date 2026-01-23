@@ -22,7 +22,7 @@ in
     extraGroups = [ "networkmanager" ];
     useDefaultShell = true;
     packages = lib.mkIf (cfg.systemType == "tabletop")
-        [ pkgs.prismlauncher ];
+        (with pkgs; [ prismlauncher heroic ]);
   };
 
   home-manager.users.gaming = { pkgs, ... }:
@@ -38,5 +38,6 @@ in
   environment.systemPackages = with pkgs; [
     clinfo
     mangohud
+    gamescope
   ];
 }
