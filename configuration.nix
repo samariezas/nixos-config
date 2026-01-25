@@ -13,6 +13,7 @@
       ./gaming
       ./virt.nix
       ./dirty-git.nix
+      ./secrets
       ./zerotier.nix
     ];
 

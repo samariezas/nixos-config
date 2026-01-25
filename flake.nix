@@ -32,7 +32,6 @@
           home-manager.nixosModules.home-manager
           grub-theme.nixosModules.default
           ./configuration.nix
-          ./secrets
         ];
       };
     };
