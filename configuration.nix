@@ -132,6 +132,9 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [
+    pkgs.foo2zjs
+  ];
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -268,6 +271,7 @@
     transmission_4-gtk
     signal-desktop
     telegram-desktop
+    inkscape
 
     waypipe
 
