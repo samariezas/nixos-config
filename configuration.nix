@@ -273,6 +273,7 @@
     signal-desktop
     telegram-desktop
     inkscape
+    obs-studio
 
     waypipe
 
