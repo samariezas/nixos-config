@@ -7,6 +7,9 @@ in {
     network-name = lib.mkOption {
       type = lib.types.str;
     };
+    tabletop-ip = lib.mkOption {
+      type = lib.types.str;
+    };
   };
 
   config.services.zerotierone = {
