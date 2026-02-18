@@ -15,6 +15,7 @@
       ./dirty-git.nix
       ./secrets
       ./zerotier.nix
+      ./logitech.nix
     ];
 
   wmconfig.users = [ "joris" "gaming" ];
