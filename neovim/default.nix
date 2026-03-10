@@ -15,6 +15,7 @@ let
             nixd
             cmake-language-server
             zls_0_14
+            omnisharp-roslyn
 
             (python3.withPackages (p: with p; [
               python-lsp-server
@@ -193,7 +194,8 @@ let
                 "nixd",
                 "cmake",
                 "zls",
-                "pylsp"
+                "pylsp",
+                "omnisharp"
             };
 
             for _, name in ipairs(servers) do
