@@ -290,6 +290,7 @@
     expect
 
     distrobox
+    betaflight-configurator
 
     (pkgs.callPackage ./minesddm.nix { })
   ];
