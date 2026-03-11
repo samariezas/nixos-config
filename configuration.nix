@@ -9,7 +9,7 @@
       ./machine-configs
 
       ./wm
-      ./neovim
+      ((import ./neovim) ["joris"])
       ./gaming
       ./virt.nix
       ./dirty-git.nix
@@ -19,7 +19,6 @@
     ];
 
   wmconfig.users = [ "joris" "gaming" ];
-  neovimconfig.users = [ "joris" ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
