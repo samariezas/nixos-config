@@ -14,6 +14,8 @@ in
     enable = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
+    installSystemWide = false;
+    installForUsers = [ "gaming" ];
   };
 
   users.users.gaming = {

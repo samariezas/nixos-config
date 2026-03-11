@@ -1,0 +1,46 @@
+37a38,39
+>   disabledModules = [ "programs/steam.nix" ];
+> 
+207a210,221
+>     installSystemWide = lib.mkOption {
+>       type = lib.types.bool;
+>       default = false;
+>       description = "Install Prism Launcher system-wide if true.";
+>     };
+> 
+>     installForUsers = lib.mkOption {
+>       type = lib.types.listOf lib.types.str;
+>       default = [];
+>       description = "List of usernames to install Prism Launcher for.";
+>     };
+> 
+214c228,239
+<   config = lib.mkIf cfg.enable {
+---
+>   config =
+>   let
+>     pkglist = ([
+>       cfg.package
+>       cfg.package.run
+>     ]
+>     ++ lib.optional cfg.gamescopeSession.enable steam-gamescope
+>     ++ lib.optional cfg.protontricks.enable (
+>       cfg.protontricks.package.override { inherit extraCompatPaths; }
+>     ));
+>   in
+>   lib.mkIf cfg.enable {
+244,251c269,273
+<     environment.systemPackages = [
+<       cfg.package
+<       cfg.package.run
+<     ]
+<     ++ lib.optional cfg.gamescopeSession.enable steam-gamescope
+<     ++ lib.optional cfg.protontricks.enable (
+<       cfg.protontricks.package.override { inherit extraCompatPaths; }
+<     );
+---
+>     environment.systemPackages = lib.mkIf cfg.installSystemWide pkglist;
+> 
+>     users.users = lib.foldl' (acc: userName: acc // { "${userName}" = {
+>       packages = pkglist;
+>     };}) {} cfg.installForUsers;

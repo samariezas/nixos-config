@@ -13,26 +13,37 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, grub-theme }: {
+  outputs = { self, nixpkgs, home-manager, grub-theme }: 
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs { inherit system; };
+    patchedSteam =
+      pkgs.runCommand "steam-module-patched" { } ''
+        mkdir -p $out
+        cp ${nixpkgs}/nixos/modules/programs/steam.nix $out/steam.nix
+        patch $out/steam.nix ${./gaming/steam-multiuser.patch}
+      '';
+    common-modules = [
+      home-manager.nixosModules.home-manager
+      grub-theme.nixosModules.default
+      ./configuration.nix
+      "${patchedSteam}/steam.nix"
+    ];
+  in
+  {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./machine-configs/laptop
-          home-manager.nixosModules.home-manager
-          grub-theme.nixosModules.default
-          ./configuration.nix
-        ];
+        ] ++ common-modules;
       };
 
       tabletop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./machine-configs/tabletop
-          home-manager.nixosModules.home-manager
-          grub-theme.nixosModules.default
-          ./configuration.nix
-        ];
+        ] ++ common-modules;
       };
     };
   };
