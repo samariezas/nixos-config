@@ -289,7 +289,7 @@
     expect
 
     distrobox
-    betaflight-configurator
+    ungoogled-chromium
 
     (pkgs.callPackage ./minesddm.nix { })
   ];
