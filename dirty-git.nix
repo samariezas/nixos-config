@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   username = "joris";
   temporary-file = "/var/tmp/${username}_git_repos";
@@ -31,6 +31,11 @@ in {
         for REPO in ''${REPOS[@]}
         do
             REPO_SUBSTR=''${REPO%/.git}
+            if [ ! -d ''${REPO_SUBSTR} ]
+            then
+                echo "Repo ''${REPO_SUBSTR} doesn't exist, skipping"
+                continue
+            fi
             GIT_RESULT=$(${pkgs.git}/bin/git -c "color.ui=always" -C ''${REPO_SUBSTR} status -s)
             if [[ ''${GIT_RESULT} ]]
             then
