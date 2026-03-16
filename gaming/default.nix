@@ -23,8 +23,8 @@ in
     description = "Gaming";
     extraGroups = [ "networkmanager" ];
     useDefaultShell = true;
-    packages = lib.mkIf (cfg.systemType == "tabletop")
-        (with pkgs; [ prismlauncher heroic ]);
+    packages = [ pkgs.prismlauncher ] ++ 
+        (lib.optionals (cfg.systemType == "tabletop") [ pkgs.heroic ]);
   };
 
   home-manager.users.gaming = { pkgs, ... }:
