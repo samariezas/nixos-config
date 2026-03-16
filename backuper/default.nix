@@ -32,6 +32,12 @@ in {
       };
     };
 
+    users.users.joris.packages = [
+      (pkgs.writeShellScriptBin
+        "run-backup"
+        "restic -r sftp:storage:/home/restic backup /mnt/nfs")
+    ];
+
     home-manager.users.joris = { ... }:
     {
       programs.ssh.matchBlocks.storage = {
