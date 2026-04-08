@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "blackbox-tools-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1752592790,
+        "narHash": "sha256-kN9/Ba44r0A5h5T/lx6+c0UY5qLr+2PmU1B+XS3KLC8=",
+        "owner": "betaflight",
+        "repo": "blackbox-tools",
+        "rev": "af5c31ab9ab62b93083d6d355043026a76ce4eee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "betaflight",
+        "repo": "blackbox-tools",
+        "type": "github"
+      }
+    },
     "grub-theme": {
       "inputs": {
         "nixpkgs": [
@@ -42,6 +58,22 @@
         "type": "github"
       }
     },
+    "minesddm-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765588490,
+        "narHash": "sha256-xlfVyMVT0tYqOOkHTdtbl5utHM4AVFZKrfgBOk7UoiE=",
+        "owner": "Davi-S",
+        "repo": "sddm-theme-minesddm",
+        "rev": "8d771365565cbf4f9e5e512656d88ba7773de4e3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Davi-S",
+        "repo": "sddm-theme-minesddm",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1772047000,
@@ -58,12 +90,48 @@
         "type": "github"
       }
     },
+    "pidscope-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772837393,
+        "narHash": "sha256-3rjPcP44ICwqkbzhQjVlDBvqOgfEK1NDmkRq9vHNkfs=",
+        "owner": "dzikus",
+        "repo": "PIDscope",
+        "rev": "93f01db59cfca4dc342dd6b647404a35075362d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dzikus",
+        "repo": "PIDscope",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "grub-theme": "grub-theme",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "thirdparty": "thirdparty"
       }
+    },
+    "thirdparty": {
+      "inputs": {
+        "blackbox-tools-src": "blackbox-tools-src",
+        "minesddm-src": "minesddm-src",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pidscope-src": "pidscope-src"
+      },
+      "locked": {
+        "path": "./thirdparty",
+        "type": "path"
+      },
+      "original": {
+        "path": "./thirdparty",
+        "type": "path"
+      },
+      "parent": []
     }
   },
   "root": "root",

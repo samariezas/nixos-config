@@ -1,14 +1,8 @@
-{ pkgs, ... }:
-pkgs.stdenvNoCC.mkDerivation rec {
+{ pkgs, minesddm-src, ... }:
+pkgs.stdenvNoCC.mkDerivation {
   pname = "sddm-theme-minesddm";
   version = "2.1.0";
-  src = pkgs.fetchFromGitHub {
-    owner = "Davi-S";
-    repo = "sddm-theme-minesddm";
-    # rev = "v${version}";
-    rev = "v2.1.0";
-    hash = "sha256-WJV2pmWhLqQal+NOv4aMku3xv0NpGSN7gyhPXimRJEg=";
-  };
+  src = minesddm-src;
 
   dontWrapQtApps = true;
 
