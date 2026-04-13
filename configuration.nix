@@ -58,7 +58,7 @@
 
   boot.tmp.useTmpfs = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.loader.systemd-boot.enable = true;
+  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback.out ];
 
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
