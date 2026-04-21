@@ -7,7 +7,7 @@ let
   battery = pkgs.callPackage ./battery {};
 in
 {
-  options.wmconfig = {
+  options.pevcas.wm = {
     users = lib.options.mkOption { type = with lib.types; listOf str; };
   };
 
@@ -91,6 +91,6 @@ in
             };
           };
         };
-      }) config.wmconfig.users);
+      }) config.pevcas.wm.users);
     };
 }

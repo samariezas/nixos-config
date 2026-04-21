@@ -2,8 +2,8 @@
 with lib;
 {
   options.pevcas = {
-    systemType = mkOption {
-      type = types.enum [ "tabletop" "laptop" ];
+    systemHostname = mkOption {
+      type = types.enum [ "helium" "lithium" ];
     };
 
     battery.enabled = mkOption {

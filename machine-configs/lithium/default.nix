@@ -2,11 +2,10 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../bluetooth.nix
+    ../../bluetooth.nix # TODO: fix
   ];
 
   config = {
-    networking.hostName = "laptop";
     system.stateVersion = "25.05";
 
     boot.loader.grub.useOSProber = false;
@@ -20,21 +19,26 @@
 
     home-manager.users.joris = { ... }:
     {
-      programs.ssh.matchBlocks.tabletop-zt = {
-        hostname = config.pevcas.zerotier.tabletop-ip;
-        user = "joris";
-        port = 22;
-
-        forwardAgent = true;
-        controlMaster = "auto";
-        controlPersist = "10m";
-      };
+      #TODO: fix
+      # programs.ssh.matchBlocks.helium-zt = {
+      #   hostname = config.pevcas.zerotier.helium-ip;
+      #   user = "joris";
+      #   port = 22;
+      #
+      #   forwardAgent = true;
+      #   controlMaster = "auto";
+      #   controlPersist = "10m";
+      # };
     };
 
     pevcas = {
-      systemType = "laptop";
       battery.enabled = true;
       bluetooth.enabled = true;
+      gaming = {
+        enable = true;
+        steam = true;
+        prism = true;
+      };
     };
   };
 }

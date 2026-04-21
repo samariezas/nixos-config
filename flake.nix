@@ -25,7 +25,7 @@
       pkgs.runCommand "steam-module-patched" { } ''
         mkdir -p $out
         cp ${nixpkgs}/nixos/modules/programs/steam.nix $out/steam.nix
-        patch $out/steam.nix ${./gaming/steam-multiuser.patch}
+        patch $out/steam.nix ${./user/gaming/steam-multiuser.patch}
       '';
     common-modules = [
       home-manager.nixosModules.home-manager
@@ -43,17 +43,19 @@
   in
   {
     nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
+      lithium = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./machine-configs/laptop
+          ./machine-configs/lithium
+          ({ ... }: { pevcas.systemHostname = "lithium"; })
         ] ++ common-modules;
       };
 
-      tabletop = nixpkgs.lib.nixosSystem {
+      helium = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./machine-configs/tabletop
+          ./machine-configs/helium
+          ({ ... }: { pevcas.systemHostname = "helium"; })
         ] ++ common-modules;
       };
     };

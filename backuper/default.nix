@@ -3,6 +3,9 @@ let
   cfg = config.pevcas.backup;
 in {
   options.pevcas.backup = with lib; {
+    enable = mkEnableOption
+      "Enables local backup HDD and pushing backups via restic";
+
     port = mkOption {
       type = types.int;
     };
@@ -16,7 +19,7 @@ in {
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     fileSystems."/mnt/nfs" = {
       device = "/dev/disk/by-uuid/6ee83677-4096-4a6f-8795-dc23a16dfb4b";
       fsType = "ext4";
@@ -51,5 +54,9 @@ in {
         };
       };
     };
+
+    environment.systemPackages = with pkgs; [
+      restic
+    ];
   };
 }

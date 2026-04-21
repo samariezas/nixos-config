@@ -2,11 +2,9 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../backuper
   ];
 
   config = {
-    networking.hostName = "tabletop";
     system.stateVersion = "24.05";
 
     boot.loader.grub.useOSProber = true;
@@ -20,7 +18,12 @@
     };
 
     pevcas = {
-      systemType = "tabletop";
+      gaming = {
+        enable = true;
+        steam = true;
+        prism = true;
+        heroic = true;
+      };
     };
   };
 }
