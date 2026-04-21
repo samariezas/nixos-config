@@ -34,6 +34,7 @@
     pevcas = {
       battery.enabled = true;
       bluetooth.enabled = true;
+      shell.color = "red";
       gaming = {
         enable = true;
         steam = true;

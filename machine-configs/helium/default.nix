@@ -18,6 +18,7 @@
     };
 
     pevcas = {
+      shell.color = "blue";
       gaming = {
         enable = true;
         steam = true;
