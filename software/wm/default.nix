@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  hyprconfig = import ./hyprland.nix { inherit pkgs; };
+  hyprconfig = builtins.readFile ./hyprland.lua;
   waybarconfig = import ./waybar { inherit lib; inherit config; };
   woficonfig = import ./wofi;
   hyprlockconfig = import ./hyprlock.nix;
@@ -26,7 +26,12 @@ in
       mako
       brightnessctl
       gammastep
+      swaybg
     ];
+
+    environment.sessionVariables = {
+      WINDOWMANAGER_WALLPAPER = ./wallpaper.png;
+    };
 
     fonts.packages = with pkgs; [
       font-awesome
@@ -47,7 +52,8 @@ in
         {
           wayland.windowManager.hyprland = {
             enable = true;
-            settings = hyprconfig;
+            extraConfig = hyprconfig;
+            configType = "lua";
           };
 
           programs.waybar = {
