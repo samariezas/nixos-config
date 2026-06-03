@@ -43,15 +43,12 @@ in {
 
     home-manager.users.joris = { ... }:
     {
-      programs.ssh.matchBlocks.storage = {
-        hostname = cfg.hostname;
-        user = cfg.username;
-        port = cfg.port;
-        extraOptions = {
-          ControlPath = "~/.ssh/master-%r@%n:%p";
-          ControlMaster = "auto";
-          ControlPersist = "10m";
-        };
+      programs.ssh.settings.storage = {
+        HostName = cfg.hostname;
+        User = cfg.username;
+        Port = cfg.port;
+        ControlMaster = "auto";
+        ControlPersist = "10m";
       };
     };
 

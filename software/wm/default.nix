@@ -83,6 +83,7 @@ in
 
           gtk = {
             enable = true;
+            gtk4.theme = null;
             theme = {
               package = pkgs.flat-remix-gtk;
               name = "Flat-Remix-GTK-Blue-Darkest";

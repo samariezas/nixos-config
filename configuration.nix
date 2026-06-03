@@ -152,7 +152,7 @@
     man = {
       enable = true;
       man-db.enable = true;
-      generateCaches = false;
+      cache.enable = false;
     };
     dev.enable = true;
   };

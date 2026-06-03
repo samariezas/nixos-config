@@ -10,7 +10,6 @@ let
     jdt-language-server
     rust-analyzer
     clang-tools
-    haskell-language-server
     nixd
     nixfmt
     lua-language-server
