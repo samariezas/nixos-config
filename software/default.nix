@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ((import ./neovim) ["joris"])
+    ./neovim
     ./vesktop
     ./wm
     ./browser.nix
