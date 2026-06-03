@@ -5,10 +5,10 @@
       url = "github:betaflight/blackbox-tools";
       flake = false;
     };
-    pidscope-src = {
-      url = "github:dzikus/PIDscope";
-      flake = false;
-    };
+    # pidscope-src = {
+    #   url = "github:dzikus/PIDscope";
+    #   flake = false;
+    # };
     minesddm-src = {
       url = "github:Davi-S/sddm-theme-minesddm";
       flake = false;
@@ -20,7 +20,7 @@
     self,
     nixpkgs,
     blackbox-tools-src,
-    pidscope-src,
+    # pidscope-src,
     minesddm-src
   }:
   let
@@ -28,7 +28,7 @@
   in
   rec {
     blackbox-tools = pkgs.callPackage ./blackbox-tools.nix { inherit blackbox-tools-src; };
-    pidscope = pkgs.callPackage ./pidscope.nix { inherit pidscope-src blackbox-tools; };
+    # pidscope = pkgs.callPackage ./pidscope.nix { inherit pidscope-src blackbox-tools; };
     minesddm = pkgs.callPackage ./minesddm.nix { inherit minesddm-src; };
   };
 }
