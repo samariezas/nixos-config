@@ -125,7 +125,8 @@ vim.lsp.enable({
     "cmake",
     "zls",
     "pylsp",
-    "omnisharp"
+    "omnisharp",
+    "ocamllsp",
 });
 
 vim.diagnostic.config({
