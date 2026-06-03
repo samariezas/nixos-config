@@ -29,8 +29,11 @@
       '';
     common-modules = [
       home-manager.nixosModules.home-manager
+      ({ ... }: {
+        home-manager.useGlobalPkgs = true;
+      })
       grub-theme.nixosModules.default
-      ({ pkgs, ... }: {
+      ({ ... }: {
         environment.systemPackages = with thirdparty; [
           blackbox-tools
           minesddm

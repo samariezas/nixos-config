@@ -12,6 +12,21 @@ in
   };
 
   config = {
+    nixpkgs.overlays = [(final: prev: {
+      waybar = prev.waybar.overrideAttrs {
+        src = assert (prev.waybar.version == "0.15.0");
+          prev.fetchFromGitHub {
+            owner = "Alexays";
+            repo = "Waybar";
+            rev = "0594574";
+            hash = "sha256-51R3mIt8cLNvh/X5qe9vOqeJCj0U9KRyemVE5y+OhiU=";
+          };
+        preConfigure = ''
+          mv subprojects/cava-0.10.7-beta/ subprojects/cava-0.10.7/
+        '';
+      };
+    })];
+
     security.wrappers = lib.mkIf config.pevcas.battery.enabled {
       batterylimit = {
         setuid = true;
