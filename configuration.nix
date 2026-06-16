@@ -136,6 +136,14 @@
     expect
 
     distrobox
+
+    pv
+    poppler-utils
+    jq
+    pdftk
+    gparted
+    alsa-utils
+    exiftool
   ];
 
   system.extraDependencies = with pkgs; [
