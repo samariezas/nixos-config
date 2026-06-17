@@ -77,6 +77,8 @@
     dig
     dos2unix
     e2fsprogs
+    btrfs-progs
+    cryptsetup
     ffmpeg
     fzf
     gnuplot
