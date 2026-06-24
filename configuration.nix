@@ -13,6 +13,7 @@
       ./user
       ./backuper
       ./dirty-git.nix
+      ./crypt
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
