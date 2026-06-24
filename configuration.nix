@@ -27,7 +27,7 @@
   networking.hostName = config.pevcas.systemHostname;
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
-  time.timeZone = "Europe/Vilnius";
+  time.timeZone = "US/Eastern";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocales = "all";
   environment.variables = {
