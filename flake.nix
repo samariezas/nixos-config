@@ -61,6 +61,14 @@
           ({ ... }: { pevcas.systemHostname = "helium"; })
         ] ++ common-modules;
       };
+
+      nitrogen = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./machine-configs/nitrogen
+          ({ ... }: { pevcas.systemHostname = "nitrogen"; })
+        ] ++ common-modules;
+      };
     };
   };
 }
