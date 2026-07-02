@@ -40,8 +40,7 @@ in
         on-click = "gnome-calendar";
     };
 
-    battery = {
-      bat = "BAT0";
+    battery = lib.mkIf config.pevcas.battery.enabled {
       adapter = "AC";
       format = "${big "󰁹"} {capacity}%";
       format-charging = "${big "󰂄"} {capacity}%";
