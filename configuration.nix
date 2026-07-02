@@ -35,9 +35,8 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  # Enable the X11 windowing system.
   services.upower.enable = true;
-
+  services.fwupd.enable = true;
   programs.pulseview.enable = true;
   programs.kdeconnect.enable = true;
 
@@ -49,14 +48,6 @@
 
   # Enable CUPS to print documents.
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.joris = {
-    openssh.authorizedKeys.keyFiles = [ ./ssh/thinkpad_yubikey.pub ];
-    isNormalUser = true;
-    description = "Joris";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" ];
-    useDefaultShell = true;
-  };
-
   programs.ssh.startAgent = true;
 
   # List packages installed in system profile. To search, run:

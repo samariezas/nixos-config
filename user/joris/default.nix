@@ -1,6 +1,14 @@
 { config, ... }:
 {
   pevcas.wm.users = [ "joris" ];
+  users.users.joris = {
+    openssh.authorizedKeys.keyFiles = [ ./ssh/thinkpad_yubikey.pub ];
+    isNormalUser = true;
+    description = "Joris";
+    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" ];
+    useDefaultShell = true;
+    uid = 1000;
+  };
   home-manager.users.joris = { ... }:
   {
     programs.vim = {

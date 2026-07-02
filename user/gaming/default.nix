@@ -27,6 +27,7 @@ in
         packages =
             (lib.optionals (cfg.prism) [ pkgs.prismlauncher ]) ++
             (lib.optionals (cfg.heroic) [ pkgs.heroic ]);
+        uid = 1001;
       };
 
       home-manager.users.gaming = { ... }:
