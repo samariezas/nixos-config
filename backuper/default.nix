@@ -5,26 +5,9 @@ in {
   options.pevcas.backup = with lib; {
     enable = mkEnableOption
       "Enables local backup HDD and pushing backups via restic";
-
-    port = mkOption {
-      type = types.int;
-    };
-
-    username = mkOption {
-      type = types.str;
-    };
-
-    hostname = mkOption {
-      type = types.str;
-    };
   };
 
   config = lib.mkIf cfg.enable {
-    # fileSystems."/mnt/nfs" = {
-    #   device = "/dev/disk/by-uuid/6ee83677-4096-4a6f-8795-dc23a16dfb4b";
-    #   fsType = "ext4";
-    # };
-
     users.users.joris.packages = [
       (pkgs.writeShellScriptBin
         "run-backup"
@@ -34,9 +17,9 @@ in {
     home-manager.users.joris = { ... }:
     {
       programs.ssh.settings.storage = {
-        HostName = cfg.hostname;
-        User = cfg.username;
-        Port = cfg.port;
+        HostName = "u419829.your-storagebox.de";
+        User = "u419829";
+        Port = 23;
         ControlMaster = "auto";
         ControlPersist = "10m";
       };

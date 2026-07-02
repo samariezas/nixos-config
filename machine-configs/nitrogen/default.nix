@@ -2,7 +2,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../bluetooth.nix # TODO: fix
   ];
 
   config = {

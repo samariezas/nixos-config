@@ -7,13 +7,13 @@
   imports =
     [
       ./machine-configs
-      ./secrets
       ./core
       ./software
       ./user
       ./backuper
       ./dirty-git.nix
       ./crypt
+      ./bluetooth.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

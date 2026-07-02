@@ -2,7 +2,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../bluetooth.nix # TODO: fix
   ];
 
   config = {
@@ -15,20 +14,6 @@
         preLVM = true;
         allowDiscards = true;
       };
-    };
-
-    home-manager.users.joris = { ... }:
-    {
-      #TODO: fix
-      # programs.ssh.matchBlocks.helium-zt = {
-      #   hostname = config.pevcas.zerotier.helium-ip;
-      #   user = "joris";
-      #   port = 22;
-      #
-      #   forwardAgent = true;
-      #   controlMaster = "auto";
-      #   controlPersist = "10m";
-      # };
     };
 
     pevcas = {
