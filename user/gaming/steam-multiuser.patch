@@ -1,20 +1,20 @@
 37a38,39
 >   disabledModules = [ "programs/steam.nix" ];
 > 
-207a210,221
+202a205,216
+> 
 >     installSystemWide = lib.mkOption {
 >       type = lib.types.bool;
 >       default = false;
->       description = "Install Prism Launcher system-wide if true.";
+>       description = "Install Steam system-wide if true.";
 >     };
 > 
 >     installForUsers = lib.mkOption {
 >       type = lib.types.listOf lib.types.str;
 >       default = [];
->       description = "List of usernames to install Prism Launcher for.";
+>       description = "List of usernames to install Steam for.";
 >     };
-> 
-214c228,239
+205c219,230
 <   config = lib.mkIf cfg.enable {
 ---
 >   config =
@@ -29,7 +29,7 @@
 >     ));
 >   in
 >   lib.mkIf cfg.enable {
-244,251c269,273
+225,232c250,253
 <     environment.systemPackages = [
 <       cfg.package
 <       cfg.package.run
@@ -40,7 +40,6 @@
 <     );
 ---
 >     environment.systemPackages = lib.mkIf cfg.installSystemWide pkglist;
-> 
 >     users.users = lib.foldl' (acc: userName: acc // { "${userName}" = {
 >       packages = pkglist;
 >     };}) {} cfg.installForUsers;
