@@ -17,7 +17,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
     local wallpaper = os.getenv("WINDOWMANAGER_WALLPAPER");
     if wallpaper ~= nil then
-        hl.exec_cmd("swaybg -i " .. wallpaper)
+        hl.exec_cmd("swaybg --mode fill -i " .. wallpaper)
     end
 end)
 
