@@ -91,6 +91,16 @@ in
             settings = hyprlockconfig;
           };
 
+          services.hypridle = {
+            enable = true;
+            settings = {
+              general = {
+                lock_cmd = "pidof hyprlock || hyprlock";
+                before_sleep_cmd = "loginctl lock-session";
+              };
+            };
+          };
+
           home.pointerCursor = {
             gtk.enable = true;
             package = pkgs.bibata-cursors;
