@@ -7,15 +7,12 @@ let
   jwrap = import ./jwrap.nix;
   neovim-packages = with pkgs; [
     ripgrep
-    jdt-language-server
-    rust-analyzer
     clang-tools
     nixd
     nixfmt
     lua-language-server
     cmake-language-server
     zls_0_14
-    omnisharp-roslyn
 
     (python3.withPackages (
       p: with p; [
