@@ -4,6 +4,7 @@ let
   waybarconfig = import ./waybar { inherit lib; inherit config; };
   woficonfig = import ./wofi;
   hyprlockconfig = import ./hyprlock.nix;
+  wlogout-wrapped = pkgs.callPackage ./wlogout.nix {};
   battery = pkgs.callPackage ./battery {};
 in
 {
@@ -42,6 +43,7 @@ in
       brightnessctl
       gammastep
       swaybg
+      wlogout-wrapped
     ];
 
     environment.sessionVariables = {

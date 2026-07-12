@@ -1,7 +1,6 @@
 local terminal = "kitty";
 local menu = "wofi --show drun";
 local batterycap = "wofi -d | batterylimit";
-local locker = "hyprlock";
 local mainMod = "SUPER";
 
 hl.bind(mainMod .. " + M", hl.dsp.exit())
@@ -114,7 +113,7 @@ mmBind("SHIFT + Q", hl.dsp.window.close())
 mmBind("SPACE", hl.dsp.window.float({ action = "toggle" }))
 mmBind("D", hl.dsp.exec_cmd(menu))
 mmBind("Y", hl.dsp.exec_cmd(batterycap))
-mmBind("U", hl.dsp.exec_cmd(locker))
+mmBind("U", hl.dsp.exec_cmd("wlogout-wrapped"))
 mmBind("F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle", }))
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m region -o ~/Pictures"))
 
