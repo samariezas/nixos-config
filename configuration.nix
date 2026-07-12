@@ -131,6 +131,7 @@
 
     distrobox
 
+    sdrpp
     pv
     poppler-utils
     jq
