@@ -50,12 +50,16 @@ in
       WINDOWMANAGER_WALLPAPER = ./wallpaper.png;
     };
 
-    fonts.packages = with pkgs; [
-      font-awesome
-      noto-fonts
-      nerd-fonts.symbols-only
-      nerd-fonts.hack
-    ];
+    fonts = {
+      packages = with pkgs; [
+        font-awesome
+        noto-fonts
+        nerd-fonts.symbols-only
+        nerd-fonts.hack
+      ];
+      fontDir.enable = true;
+      fontconfig.defaultFonts.monospace = [ "Hack Nerd Font" "DejaVu Sans Mono" ];
+    };
 
     programs.hyprland = {
       enable = true;
