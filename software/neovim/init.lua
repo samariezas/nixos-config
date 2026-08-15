@@ -30,6 +30,7 @@ vim.opt.updatetime = 250
 vim.opt.modelines = 0
 
 vim.opt.fixeol = false
+vim.opt.winborder = 'rounded'
 
 
 
