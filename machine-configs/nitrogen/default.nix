@@ -16,6 +16,10 @@
       };
     };
 
+    home-manager.users.joris = {
+      services.easyeffects.enable = true;
+    };
+
     pevcas = {
       battery.enabled = true;
       bluetooth.enabled = true;
