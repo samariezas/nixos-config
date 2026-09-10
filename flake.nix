@@ -7,17 +7,13 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    grub-theme = {
-      url = "github:Lxtharia/minegrub-world-sel-theme/1b26faa8698dd352934bb2d8e5e1c8312e95e624";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     thirdparty = {
       url = "path:./thirdparty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, grub-theme, thirdparty }: 
+  outputs = { self, nixpkgs, home-manager, thirdparty }: 
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
@@ -32,7 +28,6 @@
       ({ ... }: {
         home-manager.useGlobalPkgs = true;
       })
-      grub-theme.nixosModules.default
       ({ ... }: {
         environment.systemPackages = with thirdparty; [
           blackbox-tools

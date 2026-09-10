@@ -16,27 +16,6 @@
         "type": "github"
       }
     },
-    "grub-theme": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1760805286,
-        "narHash": "sha256-W+HZyru6rlfMh3GwuKuSBRh4z2Ahp8cr6yGMIcz5Qg0=",
-        "owner": "Lxtharia",
-        "repo": "minegrub-world-sel-theme",
-        "rev": "1b26faa8698dd352934bb2d8e5e1c8312e95e624",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Lxtharia",
-        "repo": "minegrub-world-sel-theme",
-        "rev": "1b26faa8698dd352934bb2d8e5e1c8312e95e624",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -92,7 +71,6 @@
     },
     "root": {
       "inputs": {
-        "grub-theme": "grub-theme",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "thirdparty": "thirdparty"
