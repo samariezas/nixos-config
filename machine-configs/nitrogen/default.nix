@@ -26,6 +26,7 @@
       shell.color = "red";
       gaming = {
         enable = true;
+        heroic = true;
         steam = true;
         prism = true;
       };
