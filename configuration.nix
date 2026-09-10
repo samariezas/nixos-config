@@ -63,7 +63,7 @@
     unzip
     file
     qemu
-    wine-staging
+    wine64
     gdu
     btop
     dig
