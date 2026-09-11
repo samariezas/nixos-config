@@ -5,12 +5,7 @@ local mainMod = "SUPER";
 
 hl.bind(mainMod .. " + M", hl.dsp.exit())
 
-hl.monitor({
-    output = "",
-    mode = "highrr",
-    position = "auto",
-    scale = 1,
-})
+require("monitors")
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")

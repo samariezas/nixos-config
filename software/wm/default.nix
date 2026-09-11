@@ -37,6 +37,11 @@ in
       };
     };
 
+    programs.monique = {
+      enable = true;
+      enablePolkit = false;
+    };
+
     environment.systemPackages = with pkgs; [
       hyprshot
       mako

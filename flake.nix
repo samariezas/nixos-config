@@ -11,9 +11,13 @@
       url = "path:./thirdparty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    monique = {
+      url = "github:ToRvaLDz/monique";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, thirdparty }: 
+  outputs = { self, nixpkgs, home-manager, monique, thirdparty }: 
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
@@ -36,6 +40,7 @@
         ];
       })
       ./configuration.nix
+      monique.nixosModules.default
       "${patchedSteam}/steam.nix"
     ];
   in
