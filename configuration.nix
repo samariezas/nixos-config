@@ -139,6 +139,13 @@
     gparted
     alsa-utils
     exiftool
+    filezilla
+    guestfs-tools
+    nmap
+    openvpn
+    speedcrunch
+    todo-txt-cli
+    typst
   ];
 
   system.extraDependencies = with pkgs; [
