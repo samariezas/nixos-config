@@ -146,6 +146,7 @@
     speedcrunch
     todo-txt-cli
     typst
+    localsend
   ];
 
   system.extraDependencies = with pkgs; [
