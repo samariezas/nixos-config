@@ -6,6 +6,9 @@
         virtualisation.spiceUSBRedirection.enable = true;
         users.groups.libvirtd.members = [ "joris" ];
         users.users.joris.extraGroups = [ "libvirtd" ];
+        environment.systemPackages = with pkgs; [
+            virtiofsd
+        ];
         home-manager.users.joris = { pkgs, ... }:
         {
             dconf.settings = {
