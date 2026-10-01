@@ -177,7 +177,13 @@
   '';
 
   virtualisation = {
-    docker.enable = true;
-    podman.enable = true;
+    docker = {
+      enable = false;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
+    podman.enable = false;
   };
 }
