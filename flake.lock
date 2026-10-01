@@ -103,7 +103,8 @@
         "minesddm-src": "minesddm-src",
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "watermark-cli-src": "watermark-cli-src"
       },
       "locked": {
         "path": "./thirdparty",
@@ -114,6 +115,23 @@
         "type": "path"
       },
       "parent": []
+    },
+    "watermark-cli-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776350642,
+        "narHash": "sha256-hpF8WtsPkoAajj4wa+wNCkSLT441afStKec+5vSOpB4=",
+        "owner": "chianti-ga",
+        "repo": "watermark-cli",
+        "rev": "d65495bd0ee541aac5afa54434157764c836e47a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chianti-ga",
+        "ref": "v1.2.2",
+        "repo": "watermark-cli",
+        "type": "github"
+      }
     }
   },
   "root": "root",

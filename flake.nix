@@ -36,6 +36,7 @@
         environment.systemPackages = with thirdparty; [
           blackbox-tools
           minesddm
+          watermark-cli
           # pidscope
         ];
       })
