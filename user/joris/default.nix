@@ -5,7 +5,7 @@
     openssh.authorizedKeys.keyFiles = [ ./ssh/thinkpad_yubikey.pub ];
     isNormalUser = true;
     description = "Joris";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     useDefaultShell = true;
     uid = 1000;
   };
