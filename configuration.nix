@@ -147,6 +147,7 @@
     todo-txt-cli
     typst
     localsend
+    platformio
   ];
 
   system.extraDependencies = with pkgs; [
