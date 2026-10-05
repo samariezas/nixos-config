@@ -44,6 +44,11 @@
           ControlMaster = "no";
           ControlPersist = "no";
         };
+
+        "*.machines.pevcas.eu" = {
+          ControlMaster = "auto";
+          ControlPersist = "30m";
+        };
       };
     };
     home.stateVersion = config.system.stateVersion;
