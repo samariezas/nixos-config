@@ -10,7 +10,6 @@
       ./core
       ./software
       ./user
-      ./backuper
       ./dirty-git.nix
       ./crypt
       ./bluetooth.nix
