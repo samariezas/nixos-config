@@ -30,6 +30,7 @@ let
   ];
   neovim-plugins = with pkgs.vimPlugins; [
     nvim-treesitter.withAllGrammars
+    nvim-treesitter-context
     undotree
     vim-fugitive
     nvim-lspconfig
