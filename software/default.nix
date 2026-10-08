@@ -12,5 +12,6 @@
     ./shell.nix
     ./virt.nix
     ./zerotier.nix
+    ./tailscale.nix
   ];
 }
