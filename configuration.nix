@@ -147,6 +147,9 @@
     typst
     localsend
     platformio
+    sshfs
+
+    dbeaver-bin
   ];
 
   system.extraDependencies = with pkgs; [
