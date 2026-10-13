@@ -9,10 +9,7 @@ require("monitors")
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
-    local wallpaper = os.getenv("WINDOWMANAGER_WALLPAPER");
-    if wallpaper ~= nil then
-        hl.exec_cmd("swaybg --mode fill -i " .. wallpaper)
-    end
+    hl.exec_cmd("swaybg --color 111827")
 end)
 
 hl.env("XCURSOR_SIZE", "24")
