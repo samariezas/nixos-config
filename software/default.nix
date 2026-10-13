@@ -13,5 +13,6 @@
     ./virt.nix
     ./zerotier.nix
     ./tailscale.nix
+    ./thunar.nix
   ];
 }
