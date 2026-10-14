@@ -51,10 +51,6 @@ in
       wlogout-wrapped
     ];
 
-    environment.sessionVariables = {
-      WINDOWMANAGER_WALLPAPER = ./wallpaper.png;
-    };
-
     fonts = {
       packages = with pkgs; [
         font-awesome
