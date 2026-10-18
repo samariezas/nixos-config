@@ -14,5 +14,6 @@
     ./zerotier.nix
     ./tailscale.nix
     ./thunar.nix
+    ./eduvpn.nix
   ];
 }
