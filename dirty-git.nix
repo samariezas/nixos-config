@@ -16,7 +16,7 @@ in {
     systemd.services."${username}-git-scan" = {
       script = ''
         set -xu
-        ${pkgs.findutils}/bin/find "''${HOME}" -name ".git" -type d 2>/dev/null | tee "${temporary-file}"
+        ${pkgs.findutils}/bin/find "''${HOME}" -xdev -name .git -prune -printf '%h\n' -o -type d -name '.*' -prune 2>/dev/null | tee "${temporary-file}"
       '';
       serviceConfig = {
         Type = "oneshot";
@@ -30,16 +30,15 @@ in {
         mapfile -t REPOS < ${temporary-file}
         for REPO in ''${REPOS[@]}
         do
-            REPO_SUBSTR=''${REPO%/.git}
-            if [ ! -d ''${REPO_SUBSTR} ]
+            if [ ! -d ''${REPO} ]
             then
-                echo "Repo ''${REPO_SUBSTR} doesn't exist, skipping"
+                echo "Repo ''${REPO} doesn't exist, skipping"
                 continue
             fi
-            GIT_RESULT=$(${pkgs.git}/bin/git -c "color.ui=always" -C ''${REPO_SUBSTR} status -s)
+            GIT_RESULT=$(${pkgs.git}/bin/git -c "color.ui=always" -C ''${REPO} status -s)
             if [[ ''${GIT_RESULT} ]]
             then
-                echo "Repo ''${REPO_SUBSTR} dirty:"
+                echo "Repo ''${REPO} dirty:"
                 echo "''${GIT_RESULT}"
             fi
         done
