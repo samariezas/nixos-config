@@ -3,5 +3,6 @@
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
     ungoogled-chromium
+    tor-browser
   ];
 }
