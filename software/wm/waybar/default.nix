@@ -14,13 +14,23 @@ in
     position = "top";
     modules-left = [ "hyprland/workspaces" ];
     modules-center = [ "clock" ];
-    modules-right = [ "tray" ] ++ bluetooth-module ++ [ "custom/redshift" "hyprland/language" ] ++ battery-modules ++ [ "pulseaudio" "network" ];
+    modules-right = [ "tray" ] ++ bluetooth-module ++ [ "custom/redshift" "hyprland/language" ] ++ battery-modules ++ [ "temperature" "pulseaudio" "network" ];
 
     "hyprland/workspaces" = {
       disable-scroll = true;
       format = "{id}";
       active-only = false;
       all-outputs = true;
+    };
+
+    temperature = {
+      hwmon-path-abs = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon5";
+      input-filename = "temp1_input";
+      critical-threshold = 90;
+      format = "${big ""} {temperatureC}°C";
+      format-critical = "${big ""} {temperatureC}°C";
+      tooltip = false;
+      interval = 2;
     };
 
     "hyprland/language" = {
