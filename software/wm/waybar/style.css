@@ -13,15 +13,19 @@
 * {
     border: none;
     min-height: 0;
-    margin: 0.2em 0.3em 0.2em 0.3em;
+    margin: 0em 0.3em 0em 0.3em;
+}
+
+window#waybar > box {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 #waybar {
     background: @bg-1;
     color: @tx-1;
-    font-family: "Cantarell", "Font Awesome 5 Pro";
+    font-family: "Cantarell", "Symbols Nerd Font";
     font-weight: bold;
-    font-size: 12px;
 }
 
 #clock,
@@ -30,6 +34,7 @@
 #language,
 #battery,
 #custom-battery_capacity,
+#temperature,
 #pulseaudio,
 #network {
     padding-left: 0.6em;
@@ -40,17 +45,22 @@
     font-weight: bold;
     padding: 0;
     opacity: 1;
-    font-size: 1em;
+    min-width: 1.5em;
+    min-height: 1.5em;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: @bg-1;
 }
 
 #workspaces button.active {
-    background-color: @ui-3;
+    color: @bg-1;
+    background-color: @tx-1;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @tx-3;
 }
 
 #workspaces button.urgent {
     background-color: @red;
-}
-
-#workspaces button:hover {
-    background-color: @ui-3;
 }

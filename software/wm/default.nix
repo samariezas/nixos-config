@@ -10,6 +10,13 @@ in
 {
   options.pevcas.wm = {
     users = lib.options.mkOption { type = with lib.types; listOf str; };
+
+    waybar = {
+      fontSize = lib.options.mkOption {
+        type = lib.types.float;
+        default = 1.5;
+      };
+    };
   };
 
   config = {
@@ -82,7 +89,12 @@ in
             enable = true;
             package = pkgs.waybar;
             settings = waybarconfig;
-            style = ./waybar/style.css;
+            style = builtins.readFile ./waybar/style.css + ''
+
+              #waybar {
+                  font-size: ${toString config.pevcas.wm.waybar.fontSize}em;
+              }
+            '';
           };
 
           programs.wofi = {

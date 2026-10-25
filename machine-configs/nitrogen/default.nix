@@ -30,6 +30,9 @@
         steam = true;
         prism = true;
       };
+      wm.waybar = {
+        fontSize = 0.7;
+      };
     };
   };
 }
