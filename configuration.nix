@@ -51,6 +51,17 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      linux-manual = prev.linux-manual.overrideAttrs (old: {
+        env = {
+          srctree = ".";
+        };
+      });
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
     wget
     vim
